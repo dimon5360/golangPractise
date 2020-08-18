@@ -1,11 +1,10 @@
-package main
+package server
 
 import (
 	"bufio"
 	"fmt"
 	"net"
 	"strings"
-	"time"
 )
 
 // BUILD : Current version of build
@@ -16,16 +15,6 @@ const MINOR uint32 = 0
 
 // MAJOR : Major version of application
 const MAJOR uint32 = 0
-
-func main() {
-
-	timestamp := time.Now()
-	fmt.Printf("Server application version %d.%d.%d.\n", MAJOR, MINOR, BUILD)
-	fmt.Println("Time of build: ", timestamp)
-	fmt.Println("Start application.")
-
-	StartTCPServer()
-}
 
 // StartTCPServer : Start TCP server on localhost:40400
 func StartTCPServer() {

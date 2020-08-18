@@ -2,6 +2,3 @@
 .vscode/
 # ignore builded file
 main
-# ignore test files
-server
-client

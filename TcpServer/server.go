@@ -20,29 +20,40 @@ const MAJOR uint32 = 0
 func main() {
 
 	timestamp := time.Now()
-	fmt.Printf("Application version %d.%d.%d.\n", MAJOR, MINOR, BUILD)
+	fmt.Printf("Server application version %d.%d.%d.\n", MAJOR, MINOR, BUILD)
 	fmt.Println("Time of build: ", timestamp)
 	fmt.Println("Start application.")
 
 	StartTCPServer()
-
 }
 
-// StartTCPServer : Start TCP server on defined port 40400
+// StartTCPServer : Start TCP server on localhost:40400
 func StartTCPServer() {
-	fmt.Println("Start of TCP server")
 
 	var port string = ":40400"
+	fmt.Println("Start of TCP server on port localhost", port)
 
 	// start listening the port
-	ln, _ := net.Listen("tcp", port)
+	ln, err := net.Listen("tcp", port)
+	if err != nil {
+		fmt.Println("Listening failed. Program ends.")
+		return
+	}
 
 	// wait accept
-	conn, _ := ln.Accept()
+	conn, err := ln.Accept()
+	if err != nil {
+		fmt.Println("Accepting failed. Program ends.")
+		return
+	}
 
 	for {
 		// wait new message
-		message, _ := bufio.NewReader(conn).ReadString('\n')
+		message, err := bufio.NewReader(conn).ReadString('\n')
+		if err != nil {
+			fmt.Println("Invalid input msg. Program ends.")
+			break
+		}
 
 		fmt.Print("Message received: ", string(message))
 

@@ -3,5 +3,5 @@
 # ignore builded file
 main
 # ignore test files
-tcp-client.go
-tcp-server.go
+server
+client

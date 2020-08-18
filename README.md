@@ -1,2 +1,2 @@
 # golangPractise
-Repository to study go language, practise it for backend development.
+Golang TCP server and client implementations

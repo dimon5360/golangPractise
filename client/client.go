@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+// TODO: rename vars to lowercase to private access
+
 // BUILD : Current version of build
 const BUILD uint32 = 1
 

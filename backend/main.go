@@ -21,10 +21,9 @@ const MAJOR uint32 = 0
 func main() {
 	PrintSwVersion()
 
-	server.StartHTTPServer("8080")
+	fmt.Println("hello world")
 
-	// TODO: now client is unused
-	// client.StartTCPClient()
+	server.StartHTTPServer("8080")
 }
 
 // PrintSwVersion : print out SW version and date of build
